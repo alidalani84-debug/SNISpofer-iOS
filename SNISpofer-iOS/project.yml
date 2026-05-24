@@ -1,0 +1,27 @@
+﻿name: SNISpofer
+options:
+  bundleIdPrefix: com.snispoofer
+targets:
+  SNISpofer:
+    type: application
+    platform: iOS
+    deploymentTarget: "15.0"
+    sources:
+      - path: SNISpofer
+      - path: Shared
+    settings:
+      PRODUCT_BUNDLE_IDENTIFIER: com.snispoofer.ios
+      DEVELOPMENT_TEAM: "" # Add your team ID here if signing manually
+    dependencies:
+      - target: PacketTunnel
+  
+  PacketTunnel:
+    type: app-extension.packet-tunnel-provider
+    platform: iOS
+    deploymentTarget: "15.0"
+    sources:
+      - path: PacketTunnel
+      - path: Shared
+    settings:
+      PRODUCT_BUNDLE_IDENTIFIER: com.snispoofer.ios.PacketTunnel
+      INFOPLIST_FILE: PacketTunnel/Info.plist
